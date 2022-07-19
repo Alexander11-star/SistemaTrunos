@@ -1,0 +1,41 @@
+@model IEnumerable<Turnos2.Models.Especialidad>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    <title>Index</title>
+</head>
+<body>   
+
+<p>
+    <a asp-action="Create" class="btn-floating btn-large deep-orange"><i class="material-icons">person_add</i></a>
+</p>
+    <table class="responsive-table highlight z-depth-3 blue lighten-5">
+        <thead class="deep-orange lighten-1 white-text">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Descripcion)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @*Codigo para mostrar resultados*@
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td class="left">
+                    <a asp-action="Edit" asp-route-id="@item.IdEspecialidad"><i class="material-icons">edit</i></a> 
+                    <a asp-action="Delete" asp-route-id="@item.IdEspecialidad"><i class="material-icons red-text">delete</i></a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    </body> 
+    </html>
